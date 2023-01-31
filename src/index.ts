@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 //APP EXPRESS
 import { app } from './app';
 import { Client, Events, GatewayIntentBits } from 'discord.js';
@@ -34,10 +35,12 @@ client.on('ready', () => {
   console.log('Nao faco ideia do que esta acontecendo');
 });
 
-client.on('message', message => {
+client.on('messageCreate', message => {
   console.log('alguma mensagem funcionou');
   if (message.content === 'ping') {
     message.reply('pong');
+  } else {
+    message.reply('Não escreveu ping');
   }
 });
 
